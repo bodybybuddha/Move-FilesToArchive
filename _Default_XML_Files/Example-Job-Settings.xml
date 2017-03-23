@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Settings>
+	<ScriptConfig>
+		<LogDir>"location of application's script file"/logs</LogDir>
+		<LogRootName>Move-FilesToArchive</LogRootName>
+	</ScriptConfig>
+	<Archive>
+		<DirectoryInfo>For directories below, leave off the end backslash.</DirectoryInfo>
+		<SourceDirectory>C:\Script\Move-FilesToArchive\App_Logs</SourceDirectory>
+		<ArchiveDirectory>C:\Script\Move-FilesToArchive\Log_Archive</ArchiveDirectory>
+		<NumOfDaysOfUnArchivedFiles>7</NumOfDaysOfUnArchivedFiles>
+		<ArchiveTypeInfo>The ArchiveType can be: ZIP, MOVE, DELETE</ArchiveTypeInfo>
+		<ArchiveType>ZIP</ArchiveType>
+		<BaseArchiveFileName>LogArchive_</BaseArchiveFileName>
+	</Archive>
+</Settings>
