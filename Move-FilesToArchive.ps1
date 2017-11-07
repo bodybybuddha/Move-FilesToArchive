@@ -21,11 +21,6 @@
 	The command above will execute the script using the App01-Archive.Settings.xml.
  
 .NOTES
-  Version:        1.9
-  Author:         John Taylor
-  Creation Date:  03/21/2017
-  Purpose/Change: Forced to give full location of settings XML
-  
   Version:        1.8
   Author:         John Taylor
   Creation Date:  03/20/2017
@@ -127,7 +122,6 @@ Function PreflightCheck{
 #     Does the directory that holds log files exist?
 #     Does the directory to hold the Archive version exist?
 	Try{
-	
 		
 		#check for directory
 		if(!(Test-Path -Path $gConfigSettings.Settings.Archive.SourceDirectory -PathType Container)){
@@ -138,7 +132,7 @@ Function PreflightCheck{
 			return $false
 			
 		} else {
-			
+		
 			if($gConfigSettings.Settings.Archive.ArchiveType -NE "DELETE"){
 				#Check for Archive directory
 				if(!(Test-Path -Path $gConfigSettings.Settings.Archive.ArchiveDirectory -PathType Container)){
@@ -157,20 +151,26 @@ Function PreflightCheck{
 						
 						return $false				
 					}
-					
 				} else {
 					$Message = "Archive Directory Found."
 					Write-LogEntry -LogObject $LogObj -EventID 1002 -MessageType "INFORMATION" -Message $Message
 					return $true			
 				}			
-			}
-		}	
-		
+			} else {
+				$Message = "Archive Mode: DELETE."
+				Write-LogEntry -LogObject $LogObj -EventID 1002 -MessageType "INFORMATION" -Message $Message
+				return $true			
+			}			
+		}			
 	} catch {
 			$ErrMessage = "Error in Preflight. Error line $($_.InvocationInfo.ScriptLineNumber):$($_.InvocationInfo.OffsetInLine) - $($_.Exception)"
 			Write-LogEntry -LogObject $LogObj -EventID 101 -MessageType "ERROR" -Message $ErrMessage			
 			return $false	
 	}
+	
+	$Message = "Logic error in preflight check."
+	Write-LogEntry -LogObject $LogObj -EventID 102 -MessageType "ERROR" -Message $Message
+	return $false  # should not end up here... but ...
 	
 }  # end of PreflightCheck
 
