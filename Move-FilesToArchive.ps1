@@ -21,6 +21,16 @@
 	The command above will execute the script using the App01-Archive.Settings.xml.
  
 .NOTES
+ Version:        2.0
+  Author:         John Taylor
+  Creation Date:  11/09/2017
+  Purpose/Change: Clean up the different versions of this file.
+
+  Version:        1.9
+  Author:         John Taylor
+  Creation Date:  11/06/2017
+  Purpose/Change: Forced to give full location of settings XML. Clean up Delete routine
+  
   Version:        1.8
   Author:         John Taylor
   Creation Date:  03/20/2017
@@ -46,7 +56,7 @@
   Creation Date:  03/07/2017
   Purpose/Change: Initial Script
 
-#Requires –Version 3  
+#Requires ï¿½Version 3  
 #>
 
 [CmdletBinding()]
@@ -72,7 +82,7 @@ import-module (Join-Path $PSScriptRoot libraries\MultiLogv1.psm1)
 #----------------------------------------------------------[Declarations]----------------------------------------------------------
  
 #Script Version
-$sScriptVersion = "1.8"
+$sScriptVersion = "2.0"
 $sScriptName = "Move-FilesToArchive"
 $sExitCode = 0
 
