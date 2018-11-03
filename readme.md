@@ -21,7 +21,7 @@ The script only has one parameter:
 
 - **ConfigFile** - This is the full path to the XML file that contains the configuration for a particular "job".
 
-###Logging###
+### Logging ###
 
 The script uses the MultiLogv1 module for logging purposes.  The log is setup as the default **circular** logging format.  By default, it will create log files that are 1mb big before circulating the log files.
 
